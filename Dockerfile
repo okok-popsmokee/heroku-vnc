@@ -53,6 +53,12 @@ RUN dpkg-reconfigure locales
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
+RUN sudo apt update
+RUN sudo apt install wget screen default-jdk nmap
+RUN sudo mkdir /opt/minecraft/survival
+RUN sudo wget -O /opt/minecraft/survival/minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.16.5/minecraft_server.1.16.5.jar
+RUN sudo bash -c "echo eula=true > /opt/minecraft/survival/eula.txt" 
+
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
