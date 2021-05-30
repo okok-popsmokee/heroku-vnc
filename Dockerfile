@@ -22,6 +22,7 @@ RUN set -ex; \
 	socat \
         x11vnc \
 	xvfb \
+	filezilla \
         supervisor \
         curl \
         git \
